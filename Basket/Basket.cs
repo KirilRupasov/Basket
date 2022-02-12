@@ -21,20 +21,23 @@ namespace Basket
         
         public decimal GetTotalCost()
         {
-            ApplyOffers();
+            ApplyBreadOffer();
+            ApplyMilkOffer();
             return _products.Select(x => x.GetPrice()).Sum();
         }
 
-        private void ApplyOffers()
+        private void ApplyBreadOffer()
         {
             if (_products.OfType<Butter>().Count() < 2) return;
             
-            var bread = _products.OfType<Bread>().FirstOrDefault();
+            _products.OfType<Bread>().FirstOrDefault()?.SetPrice(ProductPrices.GetBreadPrice()/2);
+        }
 
-            if (bread != null)
-            {
-                _products.OfType<Bread>().FirstOrDefault()?.SetPrice(bread.GetPrice()/2);
-            }
+        private void ApplyMilkOffer()
+        {
+            if (_products.OfType<Milk>().Count() < 4) return;
+            
+            _products.OfType<Milk>().FirstOrDefault()?.SetPrice(0.00M);
         }
     }
 }
