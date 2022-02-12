@@ -54,6 +54,26 @@ namespace Basket.Tests
         }
 
         [Test]
+        public void WhenBasketHasTenMilk_ThenTotalPriceShouldBeNineTwenty()
+        {
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Milk());
+            
+            var expectedTotalPrice = 9.20M;
+            var actualTotalPrice = _basket.GetTotalCost();
+            
+            Assert.AreEqual(expectedTotalPrice, actualTotalPrice);
+        }
+
+        [Test]
         public void WhenBasketHasTwoButterOneBreadEightMilk_ThenTotalPriceShouldBeNine()
         {
             _basket.AddToCart(new Butter());
@@ -86,6 +106,23 @@ namespace Basket.Tests
             
             
             var expectedTotalPrice = 4.20M;
+            var actualTotalPrice = _basket.GetTotalCost();
+            
+            Assert.AreEqual(expectedTotalPrice, actualTotalPrice);
+        }
+        
+        [Test]
+        public void WhenBasketHasFourButterThreeBread_ThenTotalPriceShouldBeFiveTwenty()
+        {
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Bread());
+            _basket.AddToCart(new Bread());
+            _basket.AddToCart(new Bread());
+
+            var expectedTotalPrice = 5.20M;
             var actualTotalPrice = _basket.GetTotalCost();
             
             Assert.AreEqual(expectedTotalPrice, actualTotalPrice);
