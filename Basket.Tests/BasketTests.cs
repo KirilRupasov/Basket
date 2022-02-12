@@ -15,13 +15,9 @@ namespace Basket.Tests
         [Test]
         public void WhenBasketHasOneBreadOneMilkOneButter_ThenTotalPriceShouldBeTwoNinetyFive()
         {
-            var milkCost = 1.15M;
-            var butterCost = 0.80M;
-            var breadCost = 1.00M;
-            
-            _basket.AddToCart(milkCost);
-            _basket.AddToCart(butterCost);
-            _basket.AddToCart(breadCost);
+            _basket.AddToCart(new Milk());
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Bread());
 
             var expectedTotalPrice = 2.95M;
             var actualTotalPrice = _basket.GetTotalCost();
@@ -32,13 +28,10 @@ namespace Basket.Tests
         [Test]
         public void WhenBasketHasTwoButterTwoBread_ThenTotalPriceShouldBeThreeTen()
         {
-            var butterCost = 0.80M;
-            var breadCost = 1.00M;
-            
-            _basket.AddToCart(butterCost);
-            _basket.AddToCart(butterCost);
-            _basket.AddToCart(breadCost);
-            _basket.AddToCart(breadCost);
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Butter());
+            _basket.AddToCart(new Bread());
+            _basket.AddToCart(new Bread());
             
             var expectedTotalPrice = 3.10M;
             var actualTotalPrice = _basket.GetTotalCost();

@@ -10,8 +10,8 @@ namespace Basket
             _totalCost = 0.0M;
         }
         
-        public void AddToCart(decimal productPrice) {
-            _totalCost += productPrice;
+        public void AddToCart(IProduct product) {
+            _totalCost += product.GetPrice();
         }
         
         public decimal GetTotalCost() {
