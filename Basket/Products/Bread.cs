@@ -6,7 +6,7 @@ namespace Basket
 
         public Bread()
         {
-            _price = 1.00M;
+            _price = ProductPrices.GetBreadPrice();
         }
 
         public decimal GetPrice()
