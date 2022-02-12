@@ -53,5 +53,7 @@ dkms.conf
 
 #All the object files
 Basket/obj/**
+Basket/bin/**
 Basket.Tests/obj/**
+Basket.Tests/bin/**
 .idea/**
