@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Basket
 {
-    public class Basket
+    public class Basket : IBasket
     {
         private decimal _totalCost { get; set; }
         private IList<IProduct> _products { get; set; }

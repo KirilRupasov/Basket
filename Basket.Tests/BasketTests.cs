@@ -4,7 +4,7 @@ namespace Basket.Tests
 {
     public class BasketTests
     {
-        private Basket _basket;
+        private IBasket _basket;
         
         [SetUp]
         public void Setup()
