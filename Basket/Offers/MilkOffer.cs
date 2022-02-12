@@ -21,8 +21,10 @@ namespace Basket.Offers
                     milk.SetPrice(0.00M);
                     i = 1;
                 }
-                
-                i++;
+                else
+                {
+                    i++; 
+                }
             }
         }
     }
