@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Basket.Offers;
 
 namespace Basket
 {
@@ -8,10 +9,14 @@ namespace Basket
     {
         private decimal _totalCost { get; set; }
         private IList<IProduct> _products { get; set; }
-        
+        private IList<IOffer> _offers { get; set; }
+
         public Basket() {
             _totalCost = 0.0M;
             _products = new List<IProduct>();
+            _offers = new List<IOffer>();
+            _offers.Add(new BreadOffer());
+            _offers.Add(new MilkOffer());
         }
         
         public void AddToCart(IProduct product) {
@@ -21,23 +26,12 @@ namespace Basket
         
         public decimal GetTotalCost()
         {
-            ApplyBreadOffer();
-            ApplyMilkOffer();
+            foreach(var offer in _offers)
+            {
+                offer.ApplyOffer(_products);
+            }
+            
             return _products.Select(x => x.GetPrice()).Sum();
-        }
-
-        private void ApplyBreadOffer()
-        {
-            if (_products.OfType<Butter>().Count() < 2) return;
-            
-            _products.OfType<Bread>().FirstOrDefault()?.SetPrice(ProductPrices.GetBreadPrice()/2);
-        }
-
-        private void ApplyMilkOffer()
-        {
-            if (_products.OfType<Milk>().Count() < 4) return;
-            
-            _products.OfType<Milk>().FirstOrDefault()?.SetPrice(0.00M);
         }
     }
 }
