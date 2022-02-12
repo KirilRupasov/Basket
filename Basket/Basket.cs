@@ -7,12 +7,10 @@ namespace Basket
 {
     public class Basket : IBasket
     {
-        private decimal _totalCost { get; set; }
         private IList<IProduct> _products { get; set; }
         private IList<IOffer> _offers { get; set; }
 
         public Basket() {
-            _totalCost = 0.0M;
             _products = new List<IProduct>();
             _offers = new List<IOffer>();
             _offers.Add(new BreadOffer());
@@ -21,7 +19,6 @@ namespace Basket
         
         public void AddToCart(IProduct product) {
             _products.Add(product);
-            _totalCost += product.GetPrice();
         }
         
         public decimal GetTotalCost()
