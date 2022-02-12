@@ -2,7 +2,7 @@ using System;
 
 namespace Basket
 {
-    public class Butter
+    public class Butter : IProduct
     {
         private const decimal _price = 0.80M;
         

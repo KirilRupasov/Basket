@@ -1,6 +1,6 @@
 namespace Basket
 {
-    public class Milk
+    public class Milk : IProduct
     {
         private const decimal _price = 1.15M;
         
