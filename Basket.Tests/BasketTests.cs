@@ -13,6 +13,15 @@ namespace Basket.Tests
         }
 
         [Test]
+        public void WhenBasketEmpty_ThenTotalPriceShouldBeZero()
+        {
+            var expectedTotalPrice = 0.00M;
+            var actualTotalPrice = _basket.GetTotalCost();
+            
+            Assert.AreEqual(expectedTotalPrice, actualTotalPrice);
+        }
+
+        [Test]
         public void WhenBasketHasOneBreadOneMilkOneButter_ThenTotalPriceShouldBeTwoNinetyFive()
         {
             _basket.AddToCart(new Milk());
