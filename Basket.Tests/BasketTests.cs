@@ -28,5 +28,22 @@ namespace Basket.Tests
             
             Assert.AreEqual(expectedTotalPrice, actualTotalPrice);
         }
+
+        [Test]
+        public void WhenBasketHasTwoButterTwoBread_ThenTotalPriceShouldBeThreeTen()
+        {
+            var butterCost = 0.80M;
+            var breadCost = 1.00M;
+            
+            _basket.AddToCart(butterCost);
+            _basket.AddToCart(butterCost);
+            _basket.AddToCart(breadCost);
+            _basket.AddToCart(breadCost);
+            
+            var expectedTotalPrice = 3.10M;
+            var actualTotalPrice = _basket.GetTotalCost();
+            
+            Assert.AreEqual(expectedTotalPrice, actualTotalPrice);
+        }
     }
 }
