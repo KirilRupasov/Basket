@@ -50,3 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+#All the project files
+Basket/obj/**
+Basket/bin/**
+Basket.Tests/obj/**
+Basket.Tests/bin/**
+.idea/**
+Basket.sln.DotSettings.user
