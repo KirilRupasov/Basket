@@ -18,6 +18,7 @@ namespace Basket.Offers
             {
                 if (i == 4)
                 {
+                    //every 4th milk is free
                     milk.SetPrice(0.00M);
                     i = 1;
                 }
